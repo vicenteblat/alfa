@@ -1,0 +1,92 @@
+[
+    {
+      "companyName": "Rublix",
+      "contactName": "Reggie Tupp",
+      "companyNotes": "American supermarket chain",
+      "aptDate": "2018-11-28 13:30"
+    },
+    {
+      "companyName": "V games",
+      "contactName": "Philip Ransu",
+      "companyNotes": "IOS and Android game development",
+      "aptDate": "2018-11-28 10:15"
+    },
+    {
+      "companyName": "Zac Scooters",
+      "contactName": "Zachary Heilyn",
+      "companyNotes": "Scooters and rollerskates manufacturer",
+      "aptDate": "2018-11-28 14:45"
+    },
+    {
+      "companyName": "E&F gear",
+      "contactName": "Krystle Valerija",
+      "companyNotes": "Outdoors and sport gear",
+      "aptDate": "2018-11-28 16:00"
+    },
+    {
+      "companyName": "Shoe palace",
+      "contactName": "Nicolette Bardeau",
+      "companyNotes": "Men and Women shoe import",
+      "aptDate": "2018-11-28 9:00"
+    },
+    {
+      "companyName": "Zera",
+      "contactName": "Austin Finnagan",
+      "companyNotes": "Designer clothing",
+      "aptDate": "2018-11-29 13:15"
+    },
+    {
+      "companyName": "Code Depot",
+      "contactName": "Howie Cadell",
+      "companyNotes": "Software development accesories",
+      "aptDate": "2018-11-29 10:00"
+    },
+    {
+      "companyName": "Cookies & Sweets",
+      "contactName": "Freya Terray",
+      "companyNotes": "Small cookies and sweets producer",
+      "aptDate": "2018-11-29 11:45"
+    },
+    {
+      "companyName": "Pop Sodas",
+      "contactName": "Tracy Westbay",
+      "companyNotes": "Soft drinks producer and distributor",
+      "aptDate": "2018-11-29 14:30"
+    },
+    {
+      "companyName": "HeadBook",
+      "contactName": "Sandie Gobnet",
+      "companyNotes": "Social media platform",
+      "aptDate": "2018-11-29 16:00"
+    },
+    {
+      "companyName": "ABC Finance",
+      "contactName": "Nathan Cayden",
+      "companyNotes": "Financial advising and cosulting",
+      "aptDate": "2018-11-29 8:30"
+    },
+    {
+      "companyName": "SG Insurance",
+      "contactName": "Sarah Greer",
+      "companyNotes": "Insurance analysts",
+      "aptDate": "2018-11-30 10:15"
+    },
+    {
+      "companyName": "New Horizon Inc.",
+      "contactName": "Madisyn Roope",
+      "companyNotes": "Defense contractor and manufacturer",
+      "aptDate": "2018-11-30 11:30"
+    },
+    {
+      "companyName": "Lucky Resort",
+      "contactName": "Lisa Choy-Wu",
+      "companyNotes": "Beach resort",
+      "aptDate": "2018-11-30 14:30"
+    },
+    {
+      "companyName": "EXT Distributors",
+      "contactName": "Leslie Richardson",
+      "companyNotes": "Electronics distributor",
+      "aptDate": "2018-11-30 15:45"
+    }
+  ]
