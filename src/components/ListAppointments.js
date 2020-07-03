@@ -5,7 +5,7 @@ class ListAppointments extends Component {
         return (
             <div className="appointment-list item-list mb-3">
                 {this.props.appointments.map(item => (
-                    <div className="company-item col media py-3 mb-1">
+                    <div className="company-item col media py-3 mb-1" key={item.aptId}>
                         <div className="company-info media-body">
                             <div className="company-head d-flex">
                                 <span className="company-name">{item.companyName}</span>
