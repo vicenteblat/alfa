@@ -22,6 +22,7 @@ class App extends Component {
     };
     this.deleteAppointment = this.deleteAppointment.bind(this); //This allows the 'this.setState()' method in deleteAppointment() to refer to the whole object
     this.toggleForm = this.toggleForm.bind(this);
+    this.addAppointment = this.addAppointment.bind(this);
   }
 
   toggleForm() {
@@ -35,6 +36,16 @@ class App extends Component {
       formDisplay: !this.state.formDisplay,
       formIcon: tempIcon
     });
+  }
+
+  addAppointment(apt) {
+    let tempApts = this.state.myAppointments;
+    apt.aptId = this.state.lastIndex;
+    tempApts.unshift(apt); //Javascript method. Adds apt to the start of the apt array
+    this.setState({
+      myAppointments: tempApts,
+      lastIndex: this.state.lastIndex + 1
+    })
   }
 
   deleteAppointment(apt) {
@@ -73,6 +84,7 @@ class App extends Component {
                 formDisplay={this.state.formDisplay}
                 formIcon={this.state.formIcon}
                 toggleForm={this.toggleForm}
+                addAppointment={this.addAppointment}
               />
               <SearchAppointments />
               <ListAppointments 
