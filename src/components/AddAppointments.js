@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class AddAppointments extends Component {
 
   constructor() {
@@ -60,9 +58,6 @@ class AddAppointments extends Component {
   }
 
   render() {
-
-
-
     return (
       <div className={
         'card textcenter mt-3 ' +
@@ -77,12 +72,12 @@ class AddAppointments extends Component {
 
       <div className="card-body">
         <form 
-          id="aptForm" 
+          id="aptForm"
           noValidate
           onSubmit={this.handleAdd}
         >
-          <div className="form-group form-row justify-content-md-center">
-            <div className={`col-md-5 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+          <div className="form-row">
+            <div className={`form-group col-md-6 ${this.state.displayErrors ? 'was-validated' : ''}`}>
               <label>Company's Name</label>
               <input
                 type="text"
@@ -97,7 +92,7 @@ class AddAppointments extends Component {
               <div class="invalid-feedback">Please provide a Company Name</div>
             </div>
 
-            <div className={`col-md-5 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+            <div className={`form-group col-md-6 ${this.state.displayErrors ? 'was-validated' : ''}`}>
               <label>Contact's Name</label>
               <input
                 type="text"
@@ -113,39 +108,41 @@ class AddAppointments extends Component {
             </div>
           </div>
 
-          <div className="form-group form-row justify-content-md-center">
-            <div className={`col-md-4 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+          <div className="form-row justify-content-md-center">
+            <div className={`form-group col-md-4 ${this.state.displayErrors ? 'was-validated' : ''}`}>
               <label>Date</label>
-              <input
-                type="date"
-                className="form-control"
-                name="aptDate"
-                id="aptDate"
-                value={this.state.aptDate}
-                onChange={this.handleChange}
-                required
-              />
-              <div class="valid-feedback">Looks good!</div>
-              <div class="invalid-feedback">Please provide a Valid Date</div>
+                <input
+                  type="date"
+                  className="form-control"
+                  name="aptDate"
+                  id="aptDate"
+                  value={this.state.aptDate}
+                  onChange={this.handleChange}
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please provide a Valid Date</div>
             </div>
-            <div className={`col-md-4 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+            
+            <div className={`form-group col-md-4 ${this.state.displayErrors ? 'was-validated' : ''}`}>
               <label>Time</label>
-              <input
-                type="time"
-                className="form-control"
-                name="aptTime"
-                id="aptTime"
-                value={this.state.aptTime}
-                onChange={this.handleChange}
-                required
-              />
-              <div class="valid-feedback">Looks good!</div>
-              <div class="invalid-feedback">Please provide a Valid Time</div>
+                <input
+                  type="time"
+                  className="form-control"
+                  name="aptTime"
+                  id="aptTime"
+                  value={this.state.aptTime}
+                  onChange={this.handleChange}
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please provide a Valid Time</div>
             </div>
           </div>
 
           <div className="form-group form-row justify-content-md-center">
               <div className={`col-md-10 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+                <label>Company Notes</label>
                 <textarea
                   type="text-area"
                   rows="4"
