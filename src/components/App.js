@@ -5,6 +5,8 @@ import AddAppointments from './AddAppointments';
 import SearchAppointments from './SearchAppointments';
 import ListAppointments from './ListAppointments';
 
+import { without } from 'lodash';
+
 
 class App extends Component {
   constructor() {
@@ -13,6 +15,16 @@ class App extends Component {
       myAppointments: [],
       lastIndex: 0
     };
+    this.deleteAppointment = this.deleteAppointment.bind(this); //This allows the 'this.setState()' method in deleteAppointment() to refer to the whole object
+  }
+
+  deleteAppointment(apt) {
+    let tempApts = this.state.myAppointments;
+    tempApts = without(tempApts, apt); //Uses without method from lodash to return array of apts without deleted apt
+
+    this.setState ({
+      myAppointments: tempApts
+    })
   }
 
   componentDidMount() {
@@ -40,7 +52,10 @@ class App extends Component {
             <div className="container">
               <AddAppointments />
               <SearchAppointments />
-              <ListAppointments appointments={this.state.myAppointments} />
+              <ListAppointments 
+                appointments={this.state.myAppointments}
+                deleteAppointment={this.deleteAppointment}
+              />
             </div>
           </div>
         </div>
