@@ -1,3 +1,7 @@
+.displayErrors input:invalid {
+  border-color: red;
+}
+
 .add-appointment .card-body {
   display: none;
 }

@@ -12,7 +12,8 @@ class AddAppointments extends Component {
       contactName: '',
       companyNotes: '',
       aptDate: '',
-      aptTime: ''
+      aptTime: '',
+      displayErrors: false
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,6 +22,13 @@ class AddAppointments extends Component {
 
   handleAdd(e) {
     e.preventDefault();
+
+    if (!e.target.checkValidity()) {
+      this.setState({ displayErrors: true });
+      return;
+    }
+    
+    this.setState({ displayErrors: false });
     let tempApt = {
       companyName: this.state.companyName,
       contactName: this.state.contactName,
@@ -53,7 +61,7 @@ class AddAppointments extends Component {
 
   render() {
 
-    const { displayErrors } = this.state;
+
 
     return (
       <div className={
@@ -74,7 +82,8 @@ class AddAppointments extends Component {
           onSubmit={this.handleAdd}
         >
           <div className="form-group form-row justify-content-md-center">
-            <div className="col-md-5">
+            <div className={`col-md-5 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+              <label>Company's Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -82,10 +91,14 @@ class AddAppointments extends Component {
                 placeholder="Company's Name"
                 value={this.state.companyName}
                 onChange={this.handleChange}
+                required
               />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please provide a Company Name</div>
             </div>
 
-            <div className="col-md-5">
+            <div className={`col-md-5 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+              <label>Contact's Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -93,12 +106,16 @@ class AddAppointments extends Component {
                 placeholder="Contact's Name"
                 value={this.state.contactName}
                 onChange={this.handleChange}
+                required
               />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please provide a Contact Name</div>
             </div>
           </div>
 
           <div className="form-group form-row justify-content-md-center">
-            <div className="col-md-4">
+            <div className={`col-md-4 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+              <label>Date</label>
               <input
                 type="date"
                 className="form-control"
@@ -106,9 +123,13 @@ class AddAppointments extends Component {
                 id="aptDate"
                 value={this.state.aptDate}
                 onChange={this.handleChange}
+                required
               />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please provide a Valid Date</div>
             </div>
-            <div className="col-md-4">
+            <div className={`col-md-4 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+              <label>Time</label>
               <input
                 type="time"
                 className="form-control"
@@ -116,22 +137,28 @@ class AddAppointments extends Component {
                 id="aptTime"
                 value={this.state.aptTime}
                 onChange={this.handleChange}
+                required
               />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please provide a Valid Time</div>
             </div>
           </div>
 
           <div className="form-group form-row justify-content-md-center">
-              <div className="col-md-10">
-                  <textarea
-                      className="form-control"
-                      rows="4"
-                      cols="50"
-                      name="companyNotes"
-                      id="companyNotes"
-                      placeholder="Company Notes"
-                      value={this.state.companyNotes}
-                      onChange={this.handleChange}
-                  />
+              <div className={`col-md-10 ${this.state.displayErrors ? 'was-validated' : ''}`}>
+                <textarea
+                  type="text-area"
+                  rows="4"
+                  className="form-control"
+                  name="companyNotes"
+                  id="companyNotes"
+                  placeholder="Company Notes"
+                  value={this.state.companyNotes}
+                  onChange={this.handleChange}
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please provide a Company Note</div>
               </div>
           </div>
 
