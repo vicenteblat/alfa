@@ -13,6 +13,7 @@ class App extends Component {
     super();
     this.state = {
       myAppointments: [],
+      formDisplay: false,
       lastIndex: 0
     };
     this.deleteAppointment = this.deleteAppointment.bind(this); //This allows the 'this.setState()' method in deleteAppointment() to refer to the whole object
@@ -50,7 +51,7 @@ class App extends Component {
         <div className="row">
           <div className="col-md-12 bg-white">
             <div className="container">
-              <AddAppointments />
+              <AddAppointments formDisplay={this.state.formDisplay}/>
               <SearchAppointments />
               <ListAppointments 
                 appointments={this.state.myAppointments}
