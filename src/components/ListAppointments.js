@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaTrashAlt } from 'react-icons/fa'
+import { FaTrashAlt } from 'react-icons/fa';
 import Moment from 'react-moment';
 
 class ListAppointments extends Component {
@@ -36,7 +36,10 @@ class ListAppointments extends Component {
                         </div>
 
                         <div className="ml-3">
-                            <button className="company-delete btn btn-sm btn-danger">
+                            <button 
+                                className="company-delete btn btn-sm btn-danger"
+                                onClick={() => this.props.deleteAppointment(item)}
+                            >
                                 <FaTrashAlt />
                             </button>
                         </div>
