@@ -6,7 +6,7 @@ class AddAppointments extends Component {
 
   constructor() {
     super()
-    
+
     this.state = {
       companyName: '',
       contactName: '',
@@ -16,6 +16,29 @@ class AddAppointments extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+  }
+
+  handleAdd(e) {
+    e.preventDefault();
+    let tempApt = {
+      companyName: this.state.companyName,
+      contactName: this.state.contactName,
+      companyNotes: this.state.companyNotes,
+      aptDate: this.state.aptDate + ' ' + this.state.aptTime
+    }
+
+    this.props.addAppointment(tempApt);
+
+    this.setState({
+      companyName: '',
+      contactName: '',
+      companyNotes: '',
+      aptDate: '',
+      aptTime: ''
+    });
+
+    this.props.toggleForm();
   }
 
   handleChange(e) {
@@ -29,6 +52,9 @@ class AddAppointments extends Component {
   }
 
   render() {
+
+    const { displayErrors } = this.state;
+
     return (
       <div className={
         'card textcenter mt-3 ' +
@@ -42,7 +68,11 @@ class AddAppointments extends Component {
       </div>
 
       <div className="card-body">
-        <form id="aptForm" noValidate>
+        <form 
+          id="aptForm" 
+          noValidate
+          onSubmit={this.handleAdd}
+        >
           <div className="form-group form-row justify-content-md-center">
             <div className="col-md-5">
               <input
