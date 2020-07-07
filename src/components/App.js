@@ -20,12 +20,14 @@ class App extends Component {
       formIcon: FaAngleDown,
       orderBy: 'companyName',
       orderDir: 'asc',
+      queryText: '',
       lastIndex: 0
     };
     this.deleteAppointment = this.deleteAppointment.bind(this); //This allows the 'this.setState()' method in deleteAppointment() to refer to the whole object
     this.toggleForm = this.toggleForm.bind(this);
     this.addAppointment = this.addAppointment.bind(this);
     this.changeOrder = this.changeOrder.bind(this);
+    this.searchApts = this.searchApts.bind(this);
   }
 
   toggleForm() {
@@ -45,6 +47,12 @@ class App extends Component {
     this.setState({
       orderBy: order,
       orderDir: dir
+    });
+  }
+
+  searchApts(query) {
+    this.setState({
+      queryText: query
     });
   }
 
@@ -93,7 +101,7 @@ class App extends Component {
       order = -1;
     }
 
-    filteredApts.sort( (a,b) => {
+    filteredApts = filteredApts.sort( (a,b) => {
       if (a[this.state.orderBy].toLowerCase() <
           b[this.state.orderBy].toLowerCase()
       ) {
@@ -101,8 +109,21 @@ class App extends Component {
       } else {
         return 1 * order;
       }
+    }).filter(eachItem => {
+      return (
+        eachItem['companyName']
+          .toLowerCase()
+          .includes(this.state.queryText.toLowerCase()) ||
+        eachItem['contactName']
+          .toLowerCase()
+          .includes(this.state.queryText.toLowerCase()) ||
+        eachItem['companyNotes']
+          .toLowerCase()
+          .includes(this.state.queryText.toLowerCase())
+      );
     });
 
+    console.log(filteredApts);
     return (
       <main className="page bg-white" id="petratings">
       <div className="container">
@@ -119,6 +140,7 @@ class App extends Component {
                 orderBy={this.state.orderBy}
                 orderDir={this.state.orderDir}
                 changeOrder={this.changeOrder}
+                searchApts={this.searchApts}
               />
               <ListAppointments 
                 appointments={filteredApts}

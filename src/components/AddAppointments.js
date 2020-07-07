@@ -88,8 +88,8 @@ class AddAppointments extends Component {
                 onChange={this.handleChange}
                 required
               />
-              <div class="valid-feedback">Looks good!</div>
-              <div class="invalid-feedback">Please provide a Company Name</div>
+              <div className="valid-feedback">Looks good!</div>
+              <div className="invalid-feedback">Please provide a Company Name</div>
             </div>
 
             <div className={`form-group col-md-6 ${this.state.displayErrors ? 'was-validated' : ''}`}>
@@ -103,8 +103,8 @@ class AddAppointments extends Component {
                 onChange={this.handleChange}
                 required
               />
-              <div class="valid-feedback">Looks good!</div>
-              <div class="invalid-feedback">Please provide a Contact Name</div>
+              <div className="valid-feedback">Looks good!</div>
+              <div className="invalid-feedback">Please provide a Contact Name</div>
             </div>
           </div>
 
@@ -120,8 +120,8 @@ class AddAppointments extends Component {
                   onChange={this.handleChange}
                   required
                 />
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please provide a Valid Date</div>
+                <div className="valid-feedback">Looks good!</div>
+                <div className="invalid-feedback">Please provide a Valid Date</div>
             </div>
             
             <div className={`form-group col-md-4 ${this.state.displayErrors ? 'was-validated' : ''}`}>
@@ -135,8 +135,8 @@ class AddAppointments extends Component {
                   onChange={this.handleChange}
                   required
                 />
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please provide a Valid Time</div>
+                <div className="valid-feedback">Looks good!</div>
+                <div className="invalid-feedback">Please provide a Valid Time</div>
             </div>
           </div>
 
@@ -154,8 +154,8 @@ class AddAppointments extends Component {
                   onChange={this.handleChange}
                   required
                 />
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please provide a Company Note</div>
+                <div className="valid-feedback">Looks good!</div>
+                <div className="invalid-feedback">Please provide a Company Note</div>
               </div>
           </div>
 
