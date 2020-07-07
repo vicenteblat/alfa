@@ -24,36 +24,56 @@ class SearchAppointments extends Component {
                             </button>
                 
                             <div className="sort-menu dropdown-menu dropdown-menu-right">
-                                <button className={
-                                    'sort-by dropdown-item ' +
-                                    (this.props.orderBy === 'companyName' ? 'active' : '')
-                                } href="#">
-                                Company Name
+                                <button 
+                                    className={
+                                        'sort-by dropdown-item ' +
+                                        (this.props.orderBy === 'companyName' ? 'active' : '')
+                                    }
+                                    onClick={ e => this.props.changeOrder('companyName', this.props.orderDir)}
+                                    href="#"
+                                >
+                                    Company Name
                                 </button>
-                                <button className={
-                                    'sort-by dropdown-item ' +
-                                    (this.props.orderBy === 'aptDate' ? 'active' : '')
-                                } href="#">
-                                Date
+                                <button 
+                                    className={
+                                        'sort-by dropdown-item ' +
+                                        (this.props.orderBy === 'aptDate' ? 'active' : '')
+                                    }
+                                    onClick={ e => this.props.changeOrder('aptDate', this.props.orderDir)}
+                                    href="#"
+                                >
+                                    Date
                                 </button>
-                                <button className={
-                                    'sort-by dropdown-item ' +
-                                    (this.props.orderBy === 'contactName' ? 'active' : '')
-                                } href="#">
-                                Contact Name
+                                <button 
+                                    className={
+                                        'sort-by dropdown-item ' +
+                                        (this.props.orderBy === 'contactName' ? 'active' : '')
+                                    }
+                                    onClick={ e => this.props.changeOrder('contactName', this.props.orderDir)}
+                                    href="#"
+                                >
+                                    Contact Name
                                 </button>
                                 <div role="separator" className="dropdown-divider" />
-                                <button className={
-                                    'sort-by dropdown-item ' +
-                                    (this.props.orderDir === 'asc' ? 'active' : '')
-                                } href="#">
-                                Ascending
+                                <button 
+                                    className={
+                                        'sort-by dropdown-item ' +
+                                        (this.props.orderDir === 'asc' ? 'active' : '')
+                                    }
+                                    onClick={ e => this.props.changeOrder(this.props.orderBy, 'asc')}
+                                    href="#"
+                                >
+                                    Ascending
                                 </button>
-                                <button className={
-                                    'sort-by dropdown-item ' +
-                                    (this.props.orderDir === 'desc' ? 'active' : '')
-                                } href="#">
-                                Descending
+                                <button 
+                                    className={
+                                        'sort-by dropdown-item ' +
+                                        (this.props.orderDir === 'desc' ? 'active' : '')
+                                    }
+                                    onClick={ e => this.props.changeOrder(this.props.orderBy, 'desc')}
+                                    href="#"
+                                >
+                                    Descending
                                 </button>
                             </div>
                         </div>
