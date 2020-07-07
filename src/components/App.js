@@ -123,7 +123,6 @@ class App extends Component {
       );
     });
 
-    console.log(filteredApts);
     return (
       <main className="page bg-white" id="petratings">
       <div className="container">
