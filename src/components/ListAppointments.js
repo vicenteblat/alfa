@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
+import { MdEdit } from 'react-icons/md';
 import Moment from 'react-moment';
 
+
 class ListAppointments extends Component {
+    
     render() {
         if (this.props.appointments.length === 0) {
             return (
-                
-                <div class="alert alert-danger" role="alert">
-                    Sorry, no appointments were found. Please adjust your search criteria and try again
+                <div className="alert alert-danger" role="alert">
+                    Sorry, no appointments were found. Please adjust your search criteria and try again.
                 </div>
             );
         } else {
@@ -18,7 +20,20 @@ class ListAppointments extends Component {
                         <div className="company-item col media py-3 mb-1" key={item.aptId}>
                             <div className="company-info media-body">
                                 <div className="company-head d-flex">
-                                    <span className="company-name">{item.companyName}</span>
+                                    <span 
+                                        className="company-name"
+                                        contentEditable
+                                        suppressContentEditableWarning
+                                        onBlur={e =>
+                                            this.props.updateInfo(
+                                                'companyName',
+                                                e.target.innerText,
+                                                item.aptId
+                                            )
+                                        }
+                                    >
+                                        {item.companyName}
+                                    </span>
                                     <span className="apt-date ml-auto">
                                         <Moment
                                             date={item.aptDate}
@@ -31,7 +46,19 @@ class ListAppointments extends Component {
                                 <div className="contact-name d-flex">
                                     <span className="label-item">Contact:</span>
                                     <span className="text-white">a</span>
-                                    <span>{item.contactName}</span>
+                                    <span
+                                        contentEditable
+                                        suppressContentEditableWarning
+                                        onBlur={e => 
+                                            this.props.updateInfo(
+                                                'contactName',
+                                                e.target.innerText,
+                                                item.aptId
+                                            )
+                                        }
+                                    >
+                                        {item.contactName}
+                                    </span>
                                     <span className="apt-date ml-auto">
                                         <Moment
                                             date={item.aptDate}
@@ -40,16 +67,42 @@ class ListAppointments extends Component {
                                         />
                                     </span>
                                 </div>
-                                <div className="company-notes">{item.companyNotes}</div>
+                                <div 
+                                    className="company-notes"
+                                    contentEditable
+                                    suppressContentEditableWarning
+                                    onBlur={e => 
+                                        this.props.updateInfo(
+                                            'companyNotes',
+                                            e.target.innerText,
+                                            item.aptId
+                                        )
+                                    }
+                                >
+                                    {item.companyNotes}
+                                </div>
                             </div>
     
                             <div className="ml-3">
-                                <button 
-                                    className="company-delete btn btn-sm btn-danger"
-                                    onClick={() => this.props.deleteAppointment(item)}
-                                >
-                                    <FaTrashAlt />
-                                </button>
+                                <div>
+                                    <button 
+                                        className="company-delete btn btn-sm btn-danger"
+                                        onClick={() => this.props.deleteAppointment(item)}
+                                    >
+                                        <FaTrashAlt />
+                                    </button>
+                                </div>
+                                <div className="mt-3">
+                                    <button 
+                                        className={
+                                            'btn btn-sm btn-info'
+                                            // ${this.props.editable ? 'focus' : ''}`
+                                        }
+                                        // onClick={() => this.props.editableApt(item)}
+                                    >
+                                        <MdEdit />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -60,3 +113,4 @@ class ListAppointments extends Component {
 }
 
 export default ListAppointments;
+
