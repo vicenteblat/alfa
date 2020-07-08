@@ -22,7 +22,7 @@ class ListAppointments extends Component {
                                 <div className="company-head d-flex">
                                     <span 
                                         className="company-name"
-                                        contentEditable
+                                        contentEditable={item.editable ? true : false}
                                         suppressContentEditableWarning
                                         onBlur={e =>
                                             this.props.updateInfo(
@@ -47,7 +47,7 @@ class ListAppointments extends Component {
                                     <span className="label-item">Contact:</span>
                                     <span className="text-white">a</span>
                                     <span
-                                        contentEditable
+                                        contentEditable={item.editable ? true : false}
                                         suppressContentEditableWarning
                                         onBlur={e => 
                                             this.props.updateInfo(
@@ -69,7 +69,7 @@ class ListAppointments extends Component {
                                 </div>
                                 <div 
                                     className="company-notes"
-                                    contentEditable
+                                    contentEditable={item.editable ? true : false}
                                     suppressContentEditableWarning
                                     onBlur={e => 
                                         this.props.updateInfo(
@@ -93,15 +93,17 @@ class ListAppointments extends Component {
                                     </button>
                                 </div>
                                 <div className="mt-3">
-                                    <button 
+                                    <label
+                                        type="button"
                                         className={
-                                            'btn btn-sm btn-info'
-                                            // ${this.props.editable ? 'focus' : ''}`
+                                            `btn btn-sm btn-info
+                                            ${item.editable ? 'focus' : ''}`
                                         }
-                                        // onClick={() => this.props.editableApt(item)}
+
+                                        onClick={() => this.props.makeEditable(item.aptId) }
                                     >
                                         <MdEdit />
-                                    </button>
+                                    </label>
                                 </div>
                             </div>
                         </div>

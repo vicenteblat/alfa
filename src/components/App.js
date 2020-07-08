@@ -29,7 +29,7 @@ class App extends Component {
     this.changeOrder = this.changeOrder.bind(this);
     this.searchApts = this.searchApts.bind(this);
     this.updateInfo = this.updateInfo.bind(this);
-    // this.editableApt = this.editableApt.bind(this);
+    this.makeEditable = this.makeEditable.bind(this);
   }
 
   toggleForm() {
@@ -55,6 +55,18 @@ class App extends Component {
   searchApts(query) {
     this.setState({
       queryText: query
+    });
+  }
+
+  makeEditable(id) {
+    let tempApts = this.state.myAppointments;
+    let aptIndex = findIndex(this.state.myAppointments, {
+      aptId: id
+    });
+
+    tempApts[aptIndex]["editable"] = !tempApts[aptIndex]["editable"];
+    this.setState({
+      myAppointments: tempApts
     });
   }
 
@@ -159,6 +171,7 @@ class App extends Component {
                 appointments={filteredApts}
                 deleteAppointment={this.deleteAppointment}
                 updateInfo={this.updateInfo}
+                makeEditable={this.makeEditable}
               />
             </div>
           </div>
