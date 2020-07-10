@@ -1,4 +1,4 @@
-#Alfa
+# Alfa
 
 This is my first ever fully functional react web app, thus "alfa".\
 I will be following the instructions from the LinkedIn Learning tutorial "React.js: Building an Interface" by Ray Villalobos.\
